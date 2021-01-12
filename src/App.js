@@ -4,13 +4,18 @@ function App() {
 
   const [emailInput, setEmailInput] = useState("")
   const [passwordInput, setPasswordInput] = useState("")
+  const [formData, setFormData] = useState({
+    email: "Nina.Hovinmaa@yh.nackademin.se",
+    password: "javascriptoramverk"
+  })
 
-  function handleEmailInput(e) {
-    setEmailInput(e.target.value)
-  }
+  function handleOnChange(e) {
+    const inputName = e.target.name //email or password
+    const inputValue = e.target.value // users input to email or password
+    const newObj = {...formData, [inputName]: inputValue} // spread op to not override object formData. Think [inputName]: inputValue as [email]: nina@nackademin.se
+    setFormData(newObj)
 
-  function handlePasswordInput(e){
-    setPasswordInput(e.target.value)
+    setFormData({...formData, [e.target.name]: e.target.value})
   }
 
   return (
@@ -19,9 +24,9 @@ function App() {
       <div>
         <form>
           <label>Email:</label>
-          <input onChange={handleEmailInput}/>
+          <input name="email" value={formData.email} onChange={handleOnChange}/>
           <label>Password:</label>
-          <input onChange={handlePasswordInput}/> 
+          <input name="password" value={formData.password} onChange={handleOnChange}/> 
           <button type="submit">Log In</button>
         </form>
       </div>
