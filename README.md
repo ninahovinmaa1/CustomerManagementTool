@@ -9,4 +9,4 @@ Logga in som admin på: https://frebi.willandskill.eu/admin/
 Användarnamn: Nina.Hovinmaa@yh.nackademin.se
 lösenord: javascriptoramverk
 
-Keywords: Avancerad React, JSX, React Router DOM, API, fetch, hooks (useState, useEffect, useContext, useRef), jwt, authentication, token, styledComponents, Bootstrap 4.5.3.
+Keywords: Single page application(SPA), Advanced React, JSX, React Router DOM, API, fetch, hooks (useState, useEffect, useContext, useRef, useHistory), jwt, authentication, token, styledComponents, Bootstrap 4.5.3.
