@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function LoginPage() {
 
@@ -36,7 +36,7 @@ export default function LoginPage() {
                 console.log(data)
                 console.log(data.token)
                 localStorage.setItem("WEBB20", data.token)
-                history.push("/customer-list")
+                history.push("/customers")
             })
     }
 
