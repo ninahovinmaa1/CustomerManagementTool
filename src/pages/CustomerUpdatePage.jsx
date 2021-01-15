@@ -16,7 +16,7 @@ export default function CustomerUpdatePage(props) {
             }
         })
             .then(res => res.json())
-            .then(data => setFromData(data)) //save data from api to customerList
+            .then(data => setFormData(data)) //save data from api to customerList
     }
 
     useEffect(() => { getCustomerItem() }, [])

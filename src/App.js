@@ -26,9 +26,9 @@ function App() {
     <div>
 
       <ul>
-        <li><Link path="/customers">Customers</Link></li>
-        <li><Link path="/customers/create">Create Customer</Link></li>
-        <li><Link path="/login">Login</Link></li>
+        <li><Link to="/customers">Customers</Link></li>
+        <li><Link to="/customers/create">Create Customer</Link></li>
+        <li><Link to="/login">Login</Link></li>
       </ul>
 
       <Switch>
