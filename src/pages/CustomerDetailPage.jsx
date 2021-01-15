@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom'
 
 export default function CustomerDetailPage(props) {
     const customerId = props.match.params.id
     const [customerItem, setCustomerItem] = useState(null)
+    const history = useHistory()
 
     function getCustomerItem() {
         const url = `https://frebi.willandskill.eu/api/v1/customers/${customerId}/`
@@ -85,6 +87,7 @@ export default function CustomerDetailPage(props) {
                             </tbody>
                         </table>
                         <button type="button" onClick={deleteCustomer}>Delete Customer</button>
+                        <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
                     </div>
                 )
                 :

@@ -3,6 +3,7 @@ import {Switch, Route, Link} from 'react-router-dom';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
 import CustomerListPage from './pages/CustomerListPage';
+import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
@@ -27,7 +28,6 @@ function App() {
       <ul>
         <li><Link path="/customers">Customers</Link></li>
         <li><Link path="/customers/create">Create Customer</Link></li>
-        <li><Link></Link></li>
         <li><Link path="/login">Login</Link></li>
       </ul>
 
@@ -39,6 +39,8 @@ function App() {
         <Route path="/customers/create">
           <CustomerCreatePage/>
         </Route>
+
+        <Route path="/customers/:id/edit" component={CustomerUpdatePage}></Route>
 
         <Route path="/customers/:id" component={CustomerDetailPage}/>
 
