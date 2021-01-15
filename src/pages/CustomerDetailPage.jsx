@@ -27,6 +27,7 @@ export default function CustomerDetailPage(props) {
                 "Authorization": `Bearer ${token}`
             }
         })
+            .then(() => history.push("/customers"))
     }
 
     useEffect(() => { getCustomerItem() }, [])
