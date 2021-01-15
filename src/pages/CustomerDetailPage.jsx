@@ -87,7 +87,7 @@ export default function CustomerDetailPage(props) {
                             </tbody>
                         </table>
                         <button type="button" onClick={deleteCustomer}>Delete Customer</button>
-                        <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
+                        <button><Link to={`/customers/${customerId}/edit`}>Edit Customer</Link></button>
                     </div>
                 )
                 :
