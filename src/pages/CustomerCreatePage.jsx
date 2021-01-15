@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function CustomerCreatePage() {
 
@@ -41,7 +41,7 @@ export default function CustomerCreatePage() {
         })
             .then(res => res.json())
             .then(data => {
-                history.push('/customers')
+                history.push('/customers') //takes user to customerListPage
             })
     }
 
