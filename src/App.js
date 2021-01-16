@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 import CustomerCreatePage from './pages/CustomerCreatePage';
 import CustomerDetailPage from './pages/CustomerDetailPage';
@@ -7,6 +7,8 @@ import CustomerUpdatePage from './pages/CustomerUpdatePage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
+
+  const [userData, setUserData] = useState(null);
   
   //Get info of which user is logged in and display users email, firstname and lastname.
   function getMe() {
@@ -19,14 +21,14 @@ function App() {
       }
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setUserData(data))
   }
 
   return (
     <div>
 
       <ul>
-        <li><Link to="/customers">Customers</Link></li>
+        <li><Link to="/home">Customers</Link></li>
         <li><Link to="/customers/create">Create Customer</Link></li>
         <li><Link to="/login">Login</Link></li>
       </ul>
@@ -44,7 +46,7 @@ function App() {
 
         <Route path="/customers/:id" component={CustomerDetailPage}/>
 
-        <Route path="/customers">
+        <Route path="/home">
           <CustomerListPage/>
         </Route>
 
@@ -55,6 +57,7 @@ function App() {
         
         <hr/>
         <button onClick={getMe}>Get Me</button>
+        {userData && <p> Logged in as: {userData.firstName} {userData.lastName}, {userData.email}</p>}
 
       </div>
     </div>

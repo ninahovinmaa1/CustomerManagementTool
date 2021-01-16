@@ -5,11 +5,11 @@ const Button = styled.button`
     padding: 1rem 1.5rem;
 `
 const ButtonSecondary = styled(Button)`
-    background: lightblue;
+    background: lightgrey;
 `
 
 const ButtonPrimary = styled(Button)`
-    background: blue;
+    background: lightblue;
 `
 
 export { Button, ButtonSecondary, ButtonPrimary }

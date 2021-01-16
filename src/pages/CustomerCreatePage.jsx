@@ -41,7 +41,7 @@ export default function CustomerCreatePage() {
         })
             .then(res => res.json())
             .then(data => {
-                history.push('/customers') //takes user to customerListPage
+                history.push('/home') //takes user to customerListPage
             })
     }
 

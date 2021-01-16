@@ -30,7 +30,7 @@ export default function CustomerDetailPage(props) {
                 "Authorization": `Bearer ${token}`
             }
         })
-            .then(() => history.push("/customers"))
+            .then(() => history.push("/home"))
     }
 
     useEffect(() => { getCustomerItem() }, [])
@@ -87,10 +87,10 @@ export default function CustomerDetailPage(props) {
                                 </tr>
                             </tbody>
                         </table>
-                        <ButtonSecondary>Delete Customer2</ButtonSecondary>
                         <ButtonPrimary>
                             <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
                         </ButtonPrimary>
+                        <ButtonSecondary onClick={deleteCustomer}>Delete Customer</ButtonSecondary>
                     </div>
                 )
                 :
