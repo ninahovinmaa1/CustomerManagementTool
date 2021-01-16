@@ -54,9 +54,10 @@ export default function CustomerUpdatePage(props) {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             }
-                .then(res => res.json())
-                .then(() => history.push(`/customers/${customerId}`)) //navigate customer to the edited company
         })
+            .then(res => res.json())
+            .then(() => history.push(`/customers/${customerId}`)) //navigate customer to the edited company
+        }
 
         return (
             <div>
@@ -75,4 +76,4 @@ export default function CustomerUpdatePage(props) {
             </div>
         )
     }
-}
+

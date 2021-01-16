@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom';
+import { ButtonPrimary, ButtonSecondary } from '../styles/ButtonStyles';
 
 export default function CustomerDetailPage(props) {
     const customerId = props.match.params.id
@@ -86,8 +87,10 @@ export default function CustomerDetailPage(props) {
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" onClick={deleteCustomer}>Delete Customer</button>
-                        <button><Link to={`/customers/${customerId}/edit`}>Edit Customer</Link></button>
+                        <ButtonSecondary>Delete Customer2</ButtonSecondary>
+                        <ButtonPrimary>
+                            <Link to={`/customers/${customerId}/edit`}>Edit Customer</Link>
+                        </ButtonPrimary>
                     </div>
                 )
                 :
