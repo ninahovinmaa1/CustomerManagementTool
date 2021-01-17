@@ -44,41 +44,43 @@ function App() {
   }
   return (
     <div>
-      <UserContext.Provider value={{userData, setUserData, fetchUserData}}>
-      <CustomerListContext.Provider value={{customerList, setCustomerList, getCustomerList}}>
-        <ul>
-          <li><Link to="/home">Customers</Link></li>
-          <li><Link to="/customers/create">Create Customer</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
-
-        <Switch>
-          <Route path="/login">
-            <LoginPage/>
-          </Route>
-
-          <Route path="/customers/create">
-            <CustomerCreatePage/>
-          </Route>
-
-          <Route path="/customers/:id/edit" component={CustomerUpdatePage}></Route>
-
-          <Route path="/customers/:id" component={CustomerDetailPage}/>
-
-          <Route path="/home">
-            <CustomerListPage/>
-          </Route>
-
-        </Switch>
-
-        <h1>Customer Relationship Management system CRMI/O </h1>
-        <div>
-          
-          <hr/>
-          <button onClick={fetchUserData}>Display user</button>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link to="/" className="navbar-brand">CRMio</Link>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/home" className="nav-link">Customers</Link>
+            </li>
+            <li className="nav-item"><Link to="/customers/create" className="nav-link">Create Customer</Link></li>
+            <li className="nav-item"><Link to="/login" className="nav-link">Login</Link></li>
+          </ul>
+          <span>
+            <button onClick={fetchUserData}>Display user</button>
           {userData && <p> Logged in as: {userData.firstName} {userData.lastName}, {userData.email}</p>}
+          </span>
+        </nav>
 
-        </div>
+        <UserContext.Provider value={{userData, setUserData, fetchUserData}}>
+        <CustomerListContext.Provider value={{customerList, setCustomerList, getCustomerList}}>
+
+          <Switch>
+            <Route path="/login">
+              <LoginPage/>
+            </Route>
+
+            <Route path="/customers/create">
+              <CustomerCreatePage/>
+            </Route>
+
+            <Route path="/customers/:id/edit" component={CustomerUpdatePage}></Route>
+
+            <Route path="/customers/:id" component={CustomerDetailPage}/>
+
+            <Route path="/home">
+              <CustomerListPage/>
+            </Route>
+
+          </Switch>
+
       </CustomerListContext.Provider>
       </UserContext.Provider>
     </div>
