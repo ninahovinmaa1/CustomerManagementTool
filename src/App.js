@@ -45,7 +45,7 @@ function App() {
   return (
     <div>
       <UserContext.Provider value={{userData, setUserData, fetchUserData}}>
-      <CustomerListContext.Provider value={customerList, setCustomerList, getCustomerList}>
+      <CustomerListContext.Provider value={{customerList, setCustomerList, getCustomerList}}>
         <ul>
           <li><Link to="/home">Customers</Link></li>
           <li><Link to="/customers/create">Create Customer</Link></li>

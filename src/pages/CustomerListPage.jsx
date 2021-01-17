@@ -1,36 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import CustomerListItem from '../components/CustomerListItem';
+import { CustomerListContext } from '../contexts/CustomerListContext';
 
 export default function CustomerListPage() {
-    const [customerList, setCustomerList] = useState([])
+    // destructures useState var customerList and function getCustomerList via useContext. 
+    const { customerList, getCustomerList } = useContext(CustomerListContext)
 
     //getCustomerList displays the list of customers once right after the page's initial rendering. 
     useEffect(() => {
         getCustomerList()
     }, [])
 
-    function getCustomerList() {
-        const url = "https://frebi.willandskill.eu/api/v1/customers/"
-        const token = localStorage.getItem("WEBB20")
-        fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setCustomerList(data.results) //save data from api to customerList
-                console.log(customerList) //empty arr as no customers added yet
-            })
-    }
-
     return (
         <div>
-            {/*Display list of customers from array customerList*/}
-            {customerList.map((item) => {
-                return <CustomerListItem key={item.id} customerData={item} />
-            })}
+            {customerList ?
+                (
+                    <div>
+                        {customerList.map(item => {
+                            return <CustomerListItem
+                                key={item.id}
+                                customerData={item}
+                            />
+                        })}
+                    </div>
+                )
+                :
+                (
+                    <p>Loading...</p>
+                )
+            }
         </div>
     )
 }
