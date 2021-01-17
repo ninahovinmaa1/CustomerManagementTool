@@ -22,6 +22,7 @@ export default function CustomerCreatePage() {
                     type={type || "text"}
                     name={name}
                     onChange={handleOnChange}
+                    required
                 />
             </div>
         )
